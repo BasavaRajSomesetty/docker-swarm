@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main, test-pr-diff-3, test-pr-diff ]
+    branches: [ main, critical ]
 jobs:
   security-scan:
     runs-on: ubuntu-latest
