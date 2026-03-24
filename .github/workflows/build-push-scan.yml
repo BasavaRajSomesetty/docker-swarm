@@ -39,6 +39,7 @@ jobs:
             --pr-id="${{ github.event.number }}" \
             --git-auth-key="${{ secrets.GH_TOKEN }}" \
             --interrupt-condition="all" \
+            --artifact-type="file" \
             --diff-scan="true" \
             --interrupt-for-old-issues=false \
             --debug
