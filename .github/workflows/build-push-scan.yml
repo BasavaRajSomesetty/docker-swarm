@@ -1,9 +1,9 @@
 name: Source Code Security Scan
 on:
   push:
-    branches: [ test-pr-diff-3, main ]
+    branches: [ test-pr-diff-3 ]
   pull_request:
-    branches: [ main, test-pr-diff-3, test-pr-diff ]
+    branches: [ main ]
 
 jobs:
   security-scan:
