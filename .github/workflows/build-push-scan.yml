@@ -39,6 +39,7 @@ jobs:
             --upload-url="${{ secrets.SSD_UPLOAD_URL }}" \
             --ssd-token="${{ secrets.TEAM_TOKEN }}" \
             --pr-id="${{ github.event.number }}" \
+            --artifact-type=file \
             --git-auth-type=token \
             --git-auth-key="${{ secrets.GH_TOKEN }}" \
             --interrupt-condition="all" \
