@@ -42,6 +42,7 @@ jobs:
             --artifact-name="${{ github.event.repository.name }}" \
             --artifact-type=file \
             --artifact-path=. \
+            --artifact-tag="${{ github.sha }}" \
             --git-auth-type=token \
             --git-auth-key="${{ secrets.GH_TOKEN }}" \
             --interrupt-condition="all" \
