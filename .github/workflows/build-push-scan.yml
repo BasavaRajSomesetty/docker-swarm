@@ -40,7 +40,8 @@ jobs:
             --ssd-token="${{ secrets.TEAM_TOKEN }}" \
             --pr-id="${{ github.event.number }}" \
             --artifact-name="${{ github.event.repository.name }}" \
-            --artifact-type=file \                                                           
+            --artifact-type=file \
+            --artifact-path=. \
             --git-auth-type=token \
             --git-auth-key="${{ secrets.GH_TOKEN }}" \
             --interrupt-condition="all" \
