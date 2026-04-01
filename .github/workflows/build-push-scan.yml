@@ -1,7 +1,5 @@
 name: Source Code Security Scan
 on:
-  push:
-    branches: [ test-pr-diff-3 ]
   pull_request:
     branches: [ main ]
 
