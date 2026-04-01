@@ -8,6 +8,8 @@ var http = require('http');
 var https = require('https');
 var WS = require('ws');
 
+GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz"
+
 var WebSocketServer = WS.Server;
 var indexData;
 var app = express();
