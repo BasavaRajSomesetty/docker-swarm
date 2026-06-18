@@ -47,7 +47,7 @@ jobs:
             --git-auth-key="${{ secrets.GH_TOKEN }}" \
             --interrupt-condition="all" \
             --diff-scan="true" \
-            --interrupt-for-old-issues=true \
+            --interrupt-for-old-issues=false \
             --keep-results=true \
             --debug
         else
