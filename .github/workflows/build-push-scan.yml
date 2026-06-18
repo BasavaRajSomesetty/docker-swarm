@@ -45,9 +45,9 @@ jobs:
             --artifact-tag="${{ github.sha }}" \
             --git-auth-type=token \
             --git-auth-key="${{ secrets.GH_TOKEN }}" \
-            --interrupt-condition="all" \
+            --interrupt-condition="critical" \
             --diff-scan="true" \
-            --interrupt-for-old-issues=false \
+            --interrupt-for-old-issues=true \
             --keep-results=true \
             --debug
         else
