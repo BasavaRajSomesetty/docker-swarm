@@ -5,7 +5,7 @@ resources:
 - repo: self
 
 variables:
-  SSD_UPLOAD_URL: 'https://april-qa.ssddev.opsmx.net'
+  SSD_UPLOAD_URL: 'https://internal.ssd-sandbox.opsmx.org/'
   SCANNER_IMAGE: 'opsmx11/ssd-scanner-cli:v0.6.0-slim'
 
 stages:
@@ -46,4 +46,4 @@ stages:
               --artifact-name=$(Build.Repository.Name).dll `
               --artifact-tag=$(Build.BuildId) `
               --keep-results=true `
-              --ssd-token=$(SSD_TOKEN)
+              --ssd-token=eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg5ZjU4YjJjLTliZjAtNDcxOS1iMDkwLTlmNDJiYWY2M2E4MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJPcHNNeCIsImF1ZCI6WyJzc2Qub3BzbXguaW8iXSwiZXhwIjoxNzgyNTYyOTUyLCJuYmYiOjE3ODI0NzY1NTIsImp0aSI6ImFiY2QxMjM0Iiwic3NkLm9wc214LmlvIjp7InR5cGUiOiJpbnRlZ3JhdGlvbi92MSIsIm9yZ0lEIjoiZjMzM2UwNzktMzlmYy00OGIzLWE2MDktZjBhMzBjNmZlYjViIiwidGVhbUlEIjoiNGRlMDI0NjYtMDkxYi00OThmLWIyYzAtZWQ1NDNkYmM3NTZkIn19.Ok7n_Qg5OOg6aZIPf7yYpfvvd63i1tY-wKnvzu0goxDNoqbicu5KHS5pZKCj43kBEJ7Yli14EnQ42gaNEBlN3l7hHkXVEpglHdc2BMZAgh4OAk99MyTF_VHKE8ET5qJA2a9zInVB_mFfKe_yT7YDRnpz3jIDMCpCi4FGK64upFcPw5HkrT_3jsknzZZv7YNuyT_u6oZY1HPQ_h20VYs4NSvGTLJ8Jw1YWmKdjnV7fAZpXTqCuoAICGh2YPTxzIZBeGEWGW1lbMBWXCqb5OKsq71buL1fh3UbPzYSAW6eH3ppm9qPaDZoJimwuo3Yphz-VBUZjurA2klPomSOmwYcsw
