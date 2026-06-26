@@ -1,0 +1,49 @@
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  SSD_UPLOAD_URL: 'https://april-qa.ssddev.opsmx.net'
+  SCANNER_IMAGE: 'opsmx11/ssd-scanner-cli:v0.6.0-slim'
+
+stages:
+- stage: SourceCodeScan
+  displayName: Source Code Security Scan
+
+  jobs:
+  - job: SSDScan
+    displayName: Run OpsMx SSD Scanner
+
+    # Self-hosted Windows agent
+    pool:
+      name: 'default'
+
+    steps:
+    - checkout: self
+
+    - task: PowerShell@2
+      displayName: 'Run OpsMx SSD Scanner'
+      inputs:
+        targetType: 'inline'
+        script: |
+          docker pull $(SCANNER_IMAGE)
+
+          docker run --rm `
+            -v "$(Build.SourcesDirectory):C:\scanner\source" `
+            -v "$(Agent.TempDirectory)\ssd-toolchains:C:\var\cache\ssd-scanner\toolchains" `
+            $(SCANNER_IMAGE) `
+              --scanners=cdxgen `
+              --cdxgen-scanners=sourcecodesbom `
+              --source-code-path=C:\scanner\source `
+              --repository-url=$(Build.Repository.Uri) `
+              --branch=$(Build.SourceBranchName) `
+              --build-id=$(Build.BuildId) `
+              --upload-url=$(SSD_UPLOAD_URL) `
+              --offline-mode=false `
+              --artifact-type=file `
+              --artifact-name=$(Build.Repository.Name).dll `
+              --artifact-tag=$(Build.BuildId) `
+              --keep-results=true `
+              --ssd-token=$(SSD_TOKEN)
